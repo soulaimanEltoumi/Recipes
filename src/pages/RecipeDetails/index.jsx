@@ -4,7 +4,8 @@ import foodList from "../../assets/Data.json";
 
 function RecipeDetail() {
   const { id } = useParams();
-  const food = foodList.find((food) => food.id === parseInt(id));
+  console.log(id, foodList[0].id);
+  const food = foodList.find((food) => food.id === id);
 
   if (!food) {
     return <div>Recipe not found</div>;
