@@ -9,6 +9,7 @@ function Navbar() {
         <img src={LogoImage} alt="logo" />
         <NavLink to="/"> Home </NavLink>
         <NavLink to="/about"> About </NavLink>
+        <NavLink to="/FoodList"> Food List </NavLink>
       </nav>
     </>
   );
