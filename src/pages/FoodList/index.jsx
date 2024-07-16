@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./FoodList.module.css";
 import FoodData from "../../assets/Data.json";
+import Sidebar from "../../components/Sidebar";
 
 export default function FoodList() {
   const [foodList, setFoodList] = useState(FoodData);
@@ -12,26 +13,32 @@ export default function FoodList() {
   };
 
   return (
-    <div className={styles.foodContainer}>
-      <div className={styles.foodCards}>
-        {foodList.map((food) => (
-          <div key={food.id} className={styles.foodCard}>
-            <Link to={`/foodList/${food.id}`} className={styles.foodCardLink}>
-              <img src={food.image} alt={food.name} />
-              <div className={styles.foodCardInfo}>
-                <h3>{food.name}</h3>
-                <p>Calories: {food.calories}</p>
-              </div>
-            </Link>
-            <button
-              className={styles.deleteButton}
-              onClick={() => handleDelete(food.id)}
-            >
-              Delete
-            </button>
-          </div>
-        ))}
+    <>
+      <Sidebar />
+      <div className={styles.foodContainer}>
+        <div className={styles.foodCards}>
+          {foodList.map((food) => (
+            <div key={food.id} className={styles.foodCard}>
+              <Link to={`/foodList/${food.id}`} className={styles.foodCardLink}>
+                <img src={food.image} alt={food.name} />
+                <div className={styles.foodCardInfo}>
+                  <h3>{food.name}</h3>
+                  <p>Calories: {food.calories}</p>
+                </div>
+              </Link>
+              <button
+                className={styles.deleteButton}
+                onClick={() => handleDelete(food.id)}
+              >
+                Delete
+              </button>
+              <Link to={`/editFood/${food.id}`} className={styles.editButton}>
+                Edit
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

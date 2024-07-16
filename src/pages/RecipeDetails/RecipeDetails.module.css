@@ -1,0 +1,14 @@
+.styles ol {
+  text-align: center;
+  display: table-column;
+  justify-content: center;
+  width: max-content;
+  color: blue;
+}
+ol {
+  text-align: center;
+  display: block;
+  justify-content: center;
+  width: 50%;
+  color: blue;
+}

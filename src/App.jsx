@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import NotFoundPage from "./pages/ NotFoundPage/index.jsx";
 import RecipeDetail from "./pages/RecipeDetails";
 import FoodList from "./pages/FoodList/index.jsx";
+import EditRecipes from "./pages/EditRecipes";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/FoodList" element={<FoodList />} />
         <Route path="/foodList/:id" element={<RecipeDetail />} />
+        <Route path="/editFood/:id" element={<EditRecipes />} />
+
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

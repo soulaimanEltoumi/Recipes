@@ -12,7 +12,7 @@ export default function Home() {
       <h1>Welcome to the home page</h1>
       <Carousel />
       <div>
-        <button onClick={handleButtonClick}> Recipes </button>
+        <button onClick={handleButtonClick}> all Recipes </button>
       </div>
     </>
   );
