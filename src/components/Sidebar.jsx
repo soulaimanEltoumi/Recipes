@@ -1,6 +1,12 @@
 import React from "react";
+import data from "../assets/Data.json";
 
-function Sidebar() {
+function Sidebar({ setFoodList }) {
+  function handleRestore() {
+    localStorage.removeItem("foodList");
+    localStorage.setItem("foodList", JSON.stringify(data));
+    setFoodList(data);
+  }
   return (
     <div className="sidebar">
       <h2>Menú</h2>
@@ -16,6 +22,9 @@ function Sidebar() {
         </li>
         <li>
           <a href="#contact">Calories</a>
+        </li>
+        <li>
+          <button onClick={handleRestore}> restore </button>
         </li>
       </ul>
     </div>

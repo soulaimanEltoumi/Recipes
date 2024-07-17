@@ -1,24 +1,24 @@
 // EditFoodPage.jsx
-
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-// import foodList from "../assets/Data.json";
+import { useParams, useNavigate } from "react-router-dom";
 import foodList from "../../assets/Data.json";
+
 export default function EditRecipes() {
-  const { id } = useParams(); // Obtén el parámetro de la URL
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [food, setFood] = useState(null);
 
   useEffect(() => {
-    // Simulación de carga de datos del alimento por su ID
-    const selectedFood = foodList.find((item) => item.id === id);
+    const savedFoodList =
+      JSON.parse(localStorage.getItem("foodList")) || foodList;
+    const selectedFood = savedFoodList.find((item) => item.id === id);
     if (selectedFood) {
       setFood(selectedFood);
     } else {
-      // Manejo de error si el alimento no se encuentra
       alert("Receta no encontrada");
-      // Redirige a una página o maneja el error según tu aplicación
+      navigate("/"); // Redirige a la página de inicio o maneja el error según tu aplicación
     }
-  }, [id]);
+  }, [id, navigate]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -30,10 +30,17 @@ export default function EditRecipes() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí podrías enviar los datos actualizados a tu API o actualizar tu estado global
+    // Obtener la lista de alimentos de localStorage
+    const savedFoodList =
+      JSON.parse(localStorage.getItem("foodList")) || foodList;
+    // Actualizar la receta modificada en la lista
+    const updatedFoodList = savedFoodList.map((item) =>
+      item.id === food.id ? food : item
+    );
+    // Guardar la lista actualizada en localStorage
+    localStorage.setItem("foodList", JSON.stringify(updatedFoodList));
     console.log("Datos actualizados:", food);
-    // Redirige a la página de detalles del alimento después de guardar cambios
-    // (o maneja la navegación según sea necesario)
+    navigate("/FoodList");
   };
 
   if (!food) {
@@ -42,10 +49,10 @@ export default function EditRecipes() {
 
   return (
     <div>
-      <h2>Editar Receta: {food.name}</h2>
+      <h2>Edit Recipe: {food.name}</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">Nombre:</label>
+          <label htmlFor="name">name:</label>
           <input
             type="text"
             id="name"
@@ -56,7 +63,7 @@ export default function EditRecipes() {
           />
         </div>
         <div>
-          <label htmlFor="calories">Calorías:</label>
+          <label htmlFor="calories">calories:</label>
           <input
             type="number"
             id="calories"
@@ -67,7 +74,7 @@ export default function EditRecipes() {
           />
         </div>
         <div>
-          <label htmlFor="image">URL de la Imagen:</label>
+          <label htmlFor="image">Image URL :</label>
           <input
             type="text"
             id="image"
@@ -78,17 +85,20 @@ export default function EditRecipes() {
           />
         </div>
         <div>
-          <label htmlFor="ingredients">Ingredientes:</label>
+          <label htmlFor="ingredients">ingredients:</label>
           <textarea
             id="ingredients"
             name="ingredients"
-            value={food.ingredients.join(", ")} // Convierte el array a string separado por comas
-            onChange={handleInputChange}
+            value={food.ingredients.join(", ")}
+            onChange={(e) => {
+              const ingredients = e.target.value.split(", ");
+              setFood((prevFood) => ({ ...prevFood, ingredients }));
+            }}
             required
           />
         </div>
         <div>
-          <label htmlFor="instructions">Instrucciones:</label>
+          <label htmlFor="instructions">instructions:</label>
           <textarea
             id="instructions"
             name="instructions"
@@ -97,7 +107,7 @@ export default function EditRecipes() {
             required
           />
         </div>
-        <button type="submit">Guardar Cambios</button>
+        <button type="submit">Save Changes</button>
       </form>
     </div>
   );

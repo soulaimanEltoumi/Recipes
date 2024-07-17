@@ -3,6 +3,8 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: #f8f9fa;
 }
 
 #root {
@@ -17,9 +19,9 @@ body {
 }
 
 .footer {
-  background-color: black;
+  background-color: #343a40;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   padding: 1em;
   position: fixed;
@@ -32,8 +34,96 @@ body {
 }
 
 p {
-  justify-content: space-around;
+  margin: 0;
 }
-img {
+
+.img {
   height: 15em;
+  border-radius: 8px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.foodContainer {
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.foodCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.foodCard {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.foodCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.foodCardLink {
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+}
+
+.foodCardInfo {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.foodCardInfo h3 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.foodCardInfo p {
+  margin: 0.5em 0 0;
+  font-size: 1em;
+  color: #666;
+}
+
+.deleteButton,
+.editButton {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  margin: 0.5em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-align: center;
+}
+
+.deleteButton:hover,
+.editButton:hover {
+  background-color: #ff4d4d;
+}
+
+.editButton {
+  background-color: #4d94ff;
+}
+
+.editButton:hover {
+  background-color: #1a75ff;
 }

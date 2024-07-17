@@ -9,6 +9,7 @@ import NotFoundPage from "./pages/ NotFoundPage/index.jsx";
 import RecipeDetail from "./pages/RecipeDetails";
 import FoodList from "./pages/FoodList/index.jsx";
 import EditRecipes from "./pages/EditRecipes";
+import CreateRecipe from "./pages/CreateRecipe/";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/FoodList" element={<FoodList />} />
         <Route path="/foodList/:id" element={<RecipeDetail />} />
         <Route path="/editFood/:id" element={<EditRecipes />} />
+        <Route exact path="/createRecipe" component={<CreateRecipe />} />
 
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
