@@ -19,7 +19,7 @@
     "id": "b5eb5b5f-41b8-4f1f-8844-7a1a56a17df7",
     "name": "Sweet Potato",
     "calories": 120,
-    "image": "https://i.imgur.com/hGraGyR.jpg",
+    "image": "https://www.budgetbytes.com/wp-content/uploads/2022/10/Baked-Sweet-Potatoes-close.jpg",
     "ingredients": ["Sweet Potatoes", "Olive Oil", "Salt"],
     "instructions": "1. Preheat oven to 180°C. 2. Slice sweet potatoes. 3. Toss with olive oil and salt. 4. Bake for 25-30 minutes."
   },
@@ -117,7 +117,7 @@
     "id": "bbfd30fd-cd75-4e3b-8fc8-3d3fd62a3c39",
     "name": "Hot Dog",
     "calories": 275,
-    "image": "https://i.imgur.com/QqVHdRu.jpg",
+    "image": "https://img.freepik.com/fotos-kostenlos/klassischer-hot-dog-mit-ketchup-und-senfsauce-isoliert-auf-weissem-hintergrund_123827-29747.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1721088000&semt=ais_user",
     "ingredients": ["Hot Dog", "Bun", "Condiments"],
     "instructions": "1. Cook hot dog. 2. Place in bun. 3. Add condiments. 4. Serve hot."
   },

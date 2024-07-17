@@ -9,16 +9,6 @@ export default function FoodList() {
     JSON.parse(localStorage.getItem("foodList")) || data
   );
 
-  // useEffect(() => {
-  //   const savedFoodList = JSON.parse(localStorage.getItem("foodList"));
-  //   if (savedFoodList) {
-  //     setFoodList(savedFoodList);
-  //   } else {
-  //     setFoodList(data);
-
-  //   }
-  // }, []);
-
   const handleDelete = (id) => {
     const updatedFoodList = foodList.filter((food) => food.id !== id);
     setFoodList(updatedFoodList);

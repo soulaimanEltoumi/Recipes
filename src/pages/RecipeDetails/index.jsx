@@ -36,7 +36,7 @@ function RecipeDetail() {
     <div>
       <h1>{food.name}</h1>
       <img src={food.image} alt={food.name} className={styles.img} />
-      <p>Calorías: {food.calories}</p>
+      <p>Calories: {food.calories}</p>
       <p>Ingredientes: {food.ingredients.join(", ")}</p>
       <div>
         <h3>Instrucciones:</h3>

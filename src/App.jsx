@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import NotFoundPage from "./pages/ NotFoundPage/index.jsx";
 import RecipeDetail from "./pages/RecipeDetails";
-import FoodList from "./pages/FoodList/index.jsx";
+import RecipesList from "./pages/FoodList/index.jsx";
 import EditRecipes from "./pages/EditRecipes";
 import CreateRecipe from "./pages/CreateRecipe/";
 
@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/FoodList" element={<FoodList />} />
+        <Route path="/FoodList" element={<RecipesList />} />
         <Route path="/foodList/:id" element={<RecipeDetail />} />
         <Route path="/editFood/:id" element={<EditRecipes />} />
         <Route exact path="/createRecipe" component={<CreateRecipe />} />

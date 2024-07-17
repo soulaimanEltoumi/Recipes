@@ -3,7 +3,7 @@ import data from "../assets/Data.json";
 import classes from "./Sidebar.module.css"; // Ensure you have this CSS file
 
 function Sidebar({ setFoodList }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   function handleRestore() {
     localStorage.removeItem("foodList");
@@ -24,13 +24,9 @@ function Sidebar({ setFoodList }) {
         <div className={classes.Sidebar}>
           <h2>Menú</h2>
           <ul>
-            <li>
-              <a href="#contact">Calories</a>
-            </li>
-            <li>
-              <button onClick={handleRestore}>Restore</button>
-            </li>
+            <a href="#contact">Calories</a>
           </ul>
+          <button onClick={handleRestore}>Restore</button>
         </div>
       )}
     </div>
