@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
+import styles from "./CreateRecipe.module.css";
 
 export default function CreateRecipe() {
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const [recipe, setRecipe] = useState({
     id: uuidv4(), // Genera un ID único para cada receta
@@ -43,13 +44,17 @@ export default function CreateRecipe() {
     }));
   };
 
-  // Maneja el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí podrías enviar los datos de la nueva receta a tu API o almacenarlos localmente
     console.log("Nueva receta:", recipe);
+
+    // Add the new recipe to local storage
+    const recipes = JSON.parse(localStorage.getItem("recipes") || "[]");
+    recipes.push(recipe);
+    localStorage.setItem("recipes", JSON.stringify(recipes));
+
     // Redirige a la página de detalles de la receta creada
-    history.push(`/recipe/${recipe.id}`);
+    navigate(`/recipe/${recipe.id}`);
   };
 
   return (

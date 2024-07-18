@@ -21,7 +21,7 @@ function App() {
         <Route path="/FoodList" element={<RecipesList />} />
         <Route path="/foodList/:id" element={<RecipeDetail />} />
         <Route path="/editFood/:id" element={<EditRecipes />} />
-        <Route exact path="/createRecipe" component={<CreateRecipe />} />
+        <Route exact path="/createRecipe" element={<CreateRecipe />} />
 
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
