@@ -5,7 +5,17 @@ export default function Footer() {
   return (
     <footer className={classes.footer}>
       <p>{date.getFullYear()} My Website. All rights reserved.</p>
-      <p>link to github repository </p>
+
+      <p>
+        <a
+          href="https://github.com/soulaimanEltoumi/Recipes"
+          className={classes.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Link to GitHub Repository
+        </a>
+      </p>
     </footer>
   );
 }

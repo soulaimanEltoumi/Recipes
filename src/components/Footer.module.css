@@ -1,5 +1,5 @@
 .footer {
-  background-color: black;
+  background-color: rgba(188, 188, 188, 0.704);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -9,7 +9,7 @@
   left: 10%;
   right: 10%;
   height: 40px;
-  color: white;
+  color: black;
   box-sizing: border-box;
 }
 

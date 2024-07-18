@@ -12,3 +12,16 @@ ol {
   width: 50%;
   color: blue;
 }
+.styles img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.img {
+  height: 550px;
+  width: auto;
+  border-radius: 50%;
+  margin: 10px;
+}

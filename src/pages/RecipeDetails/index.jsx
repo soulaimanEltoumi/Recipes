@@ -1,15 +1,27 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import foodList from "../../assets/Data.json";
 import styles from "../RecipeDetails/RecipeDetails.module.css";
 
 function RecipeDetail() {
   const { id } = useParams();
-  const food = foodList.find((food) => food.id === id);
+  const [food, setFood] = useState(null);
+
+  useEffect(() => {
+    // Cargar datos desde localStorage si existen
+    const savedFoodList = JSON.parse(localStorage.getItem("foodList"));
+    if (savedFoodList) {
+      // Buscar la receta seleccionada por su ID (que es un string)
+      const selectedFood = savedFoodList.find((item) => item.id === id);
+      if (selectedFood) {
+        setFood(selectedFood);
+      } else {
+        setFood(null); // Manejar caso donde la receta no se encuentra
+      }
+    }
+  }, [id]);
 
   if (!food) {
-    return <div>Recipe not found</div>;
+    return <div>Receta no encontrada</div>;
   }
 
   // Función para dividir las instrucciones en una lista de pasos
@@ -23,11 +35,11 @@ function RecipeDetail() {
   return (
     <div>
       <h1>{food.name}</h1>
-      <img src={food.image} alt={food.name} />
+      <img src={food.image} alt={food.name} className={styles.img} />
       <p>Calories: {food.calories}</p>
-      <p>Ingredients: {food.ingredients.join(", ")}</p>
+      <p>Ingredientes: {food.ingredients.join(", ")}</p>
       <div>
-        <h3>Instructions:</h3>
+        <h3>Instrucciones:</h3>
         <ol className={styles.ol}>
           {instructionsList.map((step, index) => (
             <li key={index}>{step}</li>
