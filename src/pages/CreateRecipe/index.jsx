@@ -46,15 +46,14 @@ export default function CreateRecipe() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Nueva receta:", recipe);
-
-    // Add the new recipe to local storage
-    const recipes = JSON.parse(localStorage.getItem("recipes") || "[]");
-    recipes.push(recipe);
-    localStorage.setItem("recipes", JSON.stringify(recipes));
-
-    // Redirige a la página de detalles de la receta creada
-    navigate(`/recipe/${recipe.id}`);
+    // Obtener la lista de alimentos de localStorage
+    const savedFoodList = JSON.parse(localStorage.getItem("foodList")) || [];
+    // Agregar la nueva receta a la lista
+    const newFoodList = [...savedFoodList, recipe];
+    // Guardar la lista actualizada en localStorage
+    localStorage.setItem("foodList", JSON.stringify(newFoodList));
+    console.log("Nueva receta creada:", recipe);
+    navigate("/FoodList");
   };
 
   return (
