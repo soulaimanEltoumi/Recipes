@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 import styles from "./CreateRecipe.module.css";
+import data from "../../assets/Data.json";
 
 export default function CreateRecipe() {
   const navigate = useNavigate();
@@ -47,12 +48,11 @@ export default function CreateRecipe() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Obtener la lista de alimentos de localStorage
-    const savedFoodList = JSON.parse(localStorage.getItem("foodList")) || [];
+    const savedFoodList = JSON.parse(localStorage.getItem("foodList")) || data;
     // Agregar la nueva receta a la lista
     const newFoodList = [...savedFoodList, recipe];
     // Guardar la lista actualizada en localStorage
     localStorage.setItem("foodList", JSON.stringify(newFoodList));
-    console.log("Nueva receta creada:", recipe);
     navigate("/FoodList");
   };
 

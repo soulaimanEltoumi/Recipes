@@ -4,7 +4,7 @@ import classes from "./Sidebar.module.css";
 
 function Sidebar({ setFoodList }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [maxCalories, setMaxCalories] = useState(""); // Add a state for max calories
+  const [maxCalories, setMaxCalories] = useState("");
   const [filteredData, setFilteredData] = useState(data); // Add a state for filtered data
 
   function handleRestore() {

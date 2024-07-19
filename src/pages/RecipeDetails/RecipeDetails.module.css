@@ -4,13 +4,16 @@
   justify-content: center;
   width: max-content;
   color: blue;
+  width: 40%;
 }
-ol {
-  text-align: center;
-  display: block;
-  justify-content: center;
-  width: 50%;
-  color: blue;
+.ol {
+  text-align: center; /* Centra el texto dentro del ol */
+  width: 50%; /* Ancho del ol */
+  margin: 0 auto; /* Centra horizontalmente el ol */
+  padding: 20px; /* Espaciado interno */
+  color: blue; /* Color del texto dentro del ol */
+  border-radius: 10px; /* Borde redondeado */
+  font-size: 20px; /* Tamaño de la fuente del ol */
 }
 .styles img {
   height: 100px;

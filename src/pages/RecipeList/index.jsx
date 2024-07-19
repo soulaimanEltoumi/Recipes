@@ -35,6 +35,7 @@ export default function FoodList() {
               >
                 Delete
               </button>
+
               <Link to={`/editFood/${food.id}`} className={styles.editButton}>
                 Edit
               </Link>

@@ -37,12 +37,14 @@ function RecipeDetail() {
       <h1>{food.name}</h1>
       <img src={food.image} alt={food.name} className={styles.img} />
       <p>Calories: {food.calories}</p>
-      <p>Ingredientes: {food.ingredients.join(", ")}</p>
+      <p>ingredients: {food.ingredients.join(", ")}</p>
       <div>
-        <h3>Instrucciones:</h3>
+        <h3>instructions:</h3>
         <ol className={styles.ol}>
           {instructionsList.map((step, index) => (
-            <li key={index}>{step}</li>
+            <li key={index} className={styles.li}>
+              {step}
+            </li>
           ))}
         </ol>
       </div>

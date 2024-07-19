@@ -22,12 +22,6 @@ export default function Home() {
           all Recipes{" "}
         </button>
       </div>
-      {/* <div className={classes.div}>
-        <button className={classes.button} onClick={handleButtonClick}>
-          {" "}
-          About{" "}
-        </button>
-      </div> */}
     </div>
   );
 }

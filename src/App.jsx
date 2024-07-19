@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import NotFoundPage from "./pages/ NotFoundPage/index.jsx";
 import RecipeDetail from "./pages/RecipeDetails";
-import RecipesList from "./pages/FoodList/index.jsx";
+import RecipesList from "./pages/RecipeList/index.jsx";
 import EditRecipes from "./pages/EditRecipes";
 import CreateRecipe from "./pages/CreateRecipe/";
 

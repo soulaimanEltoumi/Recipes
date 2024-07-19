@@ -39,12 +39,11 @@ export default function EditRecipes() {
     );
     // Guardar la lista actualizada en localStorage
     localStorage.setItem("foodList", JSON.stringify(updatedFoodList));
-    console.log("Datos actualizados:", food);
     navigate("/FoodList");
   };
 
   if (!food) {
-    return <div>Cargando...</div>; // Muestra un indicador de carga mientras se obtienen los datos del alimento
+    return <div>Loading...</div>; // Muestra un indicador de carga mientras se obtienen los datos del alimento
   }
 
   return (
