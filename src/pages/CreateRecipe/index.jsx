@@ -1,5 +1,3 @@
-// CreateRecipe.jsx
-
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
@@ -10,11 +8,11 @@ export default function CreateRecipe() {
   const navigate = useNavigate();
 
   const [recipe, setRecipe] = useState({
-    id: uuidv4(), // Genera un ID único para cada receta
+    id: uuidv4(),
     name: "",
     calories: "",
     image: "",
-    ingredients: [],
+    ingredients: "",
     instructions: "",
   });
 
@@ -27,31 +25,14 @@ export default function CreateRecipe() {
     }));
   };
 
-  // Agrega un nuevo ingrediente al estado de ingredientes
-  const addIngredient = () => {
-    setRecipe((prevRecipe) => ({
-      ...prevRecipe,
-      ingredients: [...prevRecipe.ingredients, ""],
-    }));
-  };
-
-  // Maneja el cambio en un ingrediente específico
-  const handleIngredientChange = (e, index) => {
-    const newIngredients = [...recipe.ingredients];
-    newIngredients[index] = e.target.value;
-    setRecipe((prevRecipe) => ({
-      ...prevRecipe,
-      ingredients: newIngredients,
-    }));
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Obtener la lista de alimentos de localStorage
+    const ingredientsArray = recipe.ingredients
+      .split(",")
+      .map((ingredient) => ingredient.trim());
+    const newRecipe = { ...recipe, ingredients: ingredientsArray };
     const savedFoodList = JSON.parse(localStorage.getItem("foodList")) || data;
-    // Agregar la nueva receta a la lista
-    const newFoodList = [...savedFoodList, recipe];
-    // Guardar la lista actualizada en localStorage
+    const newFoodList = [...savedFoodList, newRecipe];
     localStorage.setItem("foodList", JSON.stringify(newFoodList));
     navigate("/FoodList");
   };
@@ -94,20 +75,15 @@ export default function CreateRecipe() {
           />
         </div>
         <div className={styles.formGroup}>
-          <label>Ingredients:</label>
-          {recipe.ingredients.map((ingredient, index) => (
-            <input
-              key={index}
-              type="text"
-              value={ingredient}
-              onChange={(e) => handleIngredientChange(e, index)}
-              className={styles.ingredientsInput}
-              required
-            />
-          ))}
-          <button type="button" onClick={addIngredient}>
-            Add Ingredient
-          </button>
+          <label htmlFor="ingredients">Ingredients:</label>
+          <textarea
+            id="ingredients"
+            name="ingredients"
+            value={recipe.ingredients}
+            onChange={handleChange}
+            className={styles.ingredientsTextarea}
+            required
+          />
         </div>
         <div className={styles.formGroup}>
           <label htmlFor="instructions">Instructions:</label>

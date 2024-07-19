@@ -2,8 +2,8 @@
 
 import React from "react";
 import Sidebar from "../../components/Sidebar";
-import aboutContent from "./AboutContent"; // Importa el contenido desde el archivo separado
-import "./About.css"; // Importa el archivo CSS para estilos
+import aboutContent from "./AboutContent";
+import "./About.css";
 
 export default function About() {
   return (
